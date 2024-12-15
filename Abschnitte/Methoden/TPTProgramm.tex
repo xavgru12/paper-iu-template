@@ -1,0 +1,133 @@
+In Abbildung 2.5 ist ein Überblick zu sehen, welche Schritte nötig sind, um TPT für einen Test einzurichten \cite[vgl.][S. 39]{userguide}. 
+%Im Folgenden ist zu sehen, welche Schritte benötigt werden, um TPT für einen Test einzurichten:
+\input{Abschnitte/Methoden/ImplementierungQuicktestDiagramm.tex}
+%\includegraphics[scale=.6,]{Bilder/Quicktest/SUT_TPT.drawio.png}
+\newpage
+\section*{\textit{Platform Configuration} und \textit{Platform Execution}}
+%zuerst Platform Configuration und Platform Execution und danach C Platform Konfiguration als Überschriften
+%Was macht man in der Platform Configuration? Frage beantworten
+% Man wählt eine Plattform aus der Plattformkonfiguration aus und 
+% In der Plattformkonfiguration 
+% Es gibt verschiedene Plattformen, in denen 
+Die Plattformkonfigurationen in TPT dienen dazu, das zu testende System in TPT für die Analyse zu konfigurieren.
+Eine Plattform ist die C-Platfform, die in dieser Arbeit ausschließlich behandelt wird.
+% Es gibt in TPT Plattformen, in denen
+% In der Plattformkonfiguration werden 
+%Die beiden sind streng getrennt und unabhängig voneinander. Neben der C-Platform Konfiguration gibt es auch noch andere Platformen,
+%die aber für diese Arbeit nicht weiter wichtig sind. 
+%Es gibt verschiedene Platformkonfigurationen wie beispielsweise die C Platform Konfiguration. 
+In der Plattform \textit{Execution} wird festgelegt, welche Tests durchgeführt werden sollen.
+Die Plattform Konfiguration und die Plattform \textit{Execution} sind streng getrennt und unabhängig voneinander.
+Der große Vorteil dieser Trennung ist, dass die Plattformkonfiguration ausgetauscht werden kann und die Testfälle nicht neu geschrieben
+werden müssen. Alle Einstellungen der Plattformkonfiguration sind unabhängig von der Testfallerstellung\cite[vgl.][S. 120]{tpt}. 
+
+\section*{C-Plattform Konfiguration}
+%es gibt verschiedene voreingestellte Platformen, die man benutzen kann.
+Es gibt folgende Konfigurationsmöglichkeiten \cite[vgl.][S. 862 ff.]{userguide}:
+\begin{description}
+\item[Compiler auswählen] Pfad zu einem installierten Compiler
+\item[Sourcen auswählen] Diese werden später gelinkt und kompiliert, zu analysierende Sourcen müssen auf analysieren gestellt werden
+% dabei werden die ausgewählten Sourcen kompiliert und diejenigen, die auf zu analysieren gestellt sind, werden analysiert
+% für GSIL: alle \_Task.c auf set analyze setzen
+\item[Scheduler] Ein (Prozess-)Scheduler berechnet und entscheidet, wann und wie lange ein Prozess die CPU Zeit bekommt \cite[vgl.][S. 44]{scheduler}.
+Hier ist ein Prozess eine Funktion, die ausgeführt wird, sobald sie die CPU Zeit bekommt. %Wenn diese Funktion die CPU Zeit, wird diese ausgeführt. Im 
+Im TPT Scheduler werden vom Benutzer Funktionen ausgewählt, die während der Testdurchführung ausgeführt werden sollen.
+Es können die ausgewählten Funktionen auf \textit{Startup, Initial} und \textit{Periodic} gestellt werden.
+Mit \textit{Startup} wird die Funktion nur einmal am Anfang der Testdurchführung ausgeführt. Mit \textit{Initial} wird die Funktion
+einmal am Anfang eines Zyklus ausgeführt und mit \textit{Periodic} wird die Funktion einmal pro definierter Abtastrate ausgeführt.
+% Dabei gibt es Startup, wobei die 
+% Funktionen, die aufgerufen werden sollen. Hier ist ein Scheduler erklärt \cite{scheduler}.
+\item[Step size] die Abtastrate. Gibt beispielsweise die Zeiteinheit der periodischen Scheduler Funktionen an.
+\end{description}
+%Test execution und test assessment Oberpunkt weiter nach unten
+\section*{\textit{Test Execution} und \textit{Test Assessment}}
+Die \textit{Test Execution} und das \textit{Test Assessment} sind zwei getrennte Prozesse.  
+Die \textit{Test Execution} ist dafür zuständig die Testfälle auszuführen und dabei Daten zu sammeln. % \cite[S. 1212 ff.]{userguide}.
+Diese gesammelten Daten werden beim \textit{Test Assessment} ausgewertet. 
+Daten sind beispielsweise die Werte der Signale, wobei wichtig sein kann, wann und wie lange ein  bestimmter Wert des Signals überschritten wurde \cite[vgl.][S. 1212 ff.]{userguide}.
+Ein Assessment ist beispielsweise die Auswertung eines Compare Steps.
+%, es gibt noch folgende weitere Assessments:
+Es gibt auch ein Assessment für Äquivalenzklassen. Dabei kann festgelegt werden, welche Äquivalenzklassen erreicht oder auch nicht erreicht werden sollen \cite[vgl.][S. 41 ff.]{tpttutorial}.
+%Ein weiteres Assessment ist der Min/Max Vergleich, wobei einzelne Signale detailiert beobachtet werden und festgestellt wird, ob und wie lange ein Signal
+%in einem definierten Bereich ist.
+% \textit{Test Execution} und \textit{Test Assessment} sind streng getrennt und unabhängig voneinander.
+%\cite[S.41 ff.]{tpttutorial}%Quelle ist nur über Compare Step und Assessment, nicht über Min Max
+%Während der \textit{Test Execution} werden Daten aufgesammelt. 
+%Daten sind beispielsweise die Werte der Signale im Laufe der Zeit des Tests.
+%könnten sein, welche Werte Signale zu welcher Zeit angenommen haben oder welcher Systemzustand gerade aktiv ist.
+%Diese Daten werden danach im Assessment ausgewertet. 
+% In TPT sind diese beiden streng getrennt. 
+% Bei Execution:
+% Die Testfälle werden durchgeführt. Die Testfälle sind durch automatons, step lists, Variants definiert.
+% Bei der Testdurchführung werden Daten gesammelt.
+% Beim Assessment:
+% Die gesammelten Daten werden hier ausgewertet. ZB Step list wird ausgewertet.
+ % Äquivalenzklasse wird ausgewertet. Die "Check Rules" für die Auswertung werden in 
+ % den Assesslets festgelegt.
+% In TPT werden Execution und Assessment getrennt und sind unabhängig voneinander
+
+\section*{Analysieren der Dateien}
+Durch das Analysieren werden Signale sowie Funktionen der Dateien TPT bekannt gegeben. Es wird auch TPT Binding genannt \cite[vgl.][S. 870 ff.]{userguide}.
+Das Analysieren erfolgt mit einem Parser. 
+Die Aufgabe eines Parsers ist es, Daten auf Korrektheit in Bezug auf einer \glqq Grammatik\grqq{} zu untersuchen und in einer definierten
+Struktur intern weiterzuverarbeiten \cite[vgl.][S. 1 ff.]{parser}.
+%In einem sogenannten TPT Binding werden die Funktionen vom Scheduler sowie die Signale, in TPT Channels genannt, zusammengestellt.
+% Channels können auch in TPT importiert werden
+% Hier werden Funktionen mit TPT verbunden. Insbesondere können die Channels, die TPT findet,
+% übernommen werden oder man importiert die Declarations im Declaration Editor. 
+
+\section*{Generieren und Kompilieren}
+Ein Testrahmen wird generiert und inklusive der analysierten Dateien kompiliert.
+Neben dem TPT Binding sind auch Scheduling Informationen im Testrahmen zu finden \cite[vgl.][S. 868 ff.]{userguide}.
+%Mit dem TPT Binding wird ein Testrahmen erstellt und schließlich kompiliert.
+% Es wird ein sogenannter Testrahmen erstellt, in dem alle Informationen über das TPT Binding(Channels und Informationen) 
+% beinhaltet sind. Schließlich wird es kompiliert.
+
+\section*{Testfallerstellung}
+es gibt folgende Steps in der Step Liste \cite[vgl.][S. 437 ff.]{userguide}:
+\begin{description}
+\item[Channel Step] Wertzuweisung auf ein Signal
+\item[Compare Step] Ein Signal wird durch das Assessment überprüft, ob es eine definierte Bedingung erfüllt
+%\item Channel Step
+\item[if, while Step] wie in Programmiersprachen (Java, C++)
+\item[wait] Damit läuft die Zeit weiter und Signale können überschrieben werden. Mit @ wird die Zeiteinheit auf die Abtastrate gestellt (siehe C-Plattform Konfiguration Step size).
+%läuft die Zeit weiter und eine weitere Sequenz startet, mit @ wird die Wartezeit auf die eingestellte Abtastrate gestellt
+% wait Befehl ist nötig, sodass die Zeit weiterlaufen kann und ein weitere Sequenz starten kann.
+% Damit wird abgewandt, dass ein Channel einen Kurzschluss hat, indem beispielsweise zwei Werte zur gleichen Zeit
+% auf den Channel geschrieben werden.
+% wait wie lange?
+% am besten mit @
+% @ ist eine Referenz auf die eingestellte step size.
+\end{description}
+Neben der Step Liste gibt es auch noch eine Partition Liste. Diese ermöglicht graphisches Erstellen von Testfallen mithilfe von sogenannten Automatons \cite[vgl.][S. 437 ff.]{userguide}.
+\section*{\ac{sut}}
+In \autoref{fig:SUT_TPT} ist zu sehen, wie das zu testende System mit \ac{tpt} interagiert.
+TPT erzeugt im Sinne des Testfalls ein Signal, sendet dieses an das \ac{sut} und
+es wird eine Antwort zurück an \ac{tpt} geschickt.
+Die Antwort des \ac{sut} wird in \ac{tpt} verarbeitet und gegebenenfalls ein neues Signal an das \ac{sut} geschickt,
+wodurch der Zyklus von Neuem beginnt. Es entsteht ein geschlossener Kreis zwischen \ac{sut} und \ac{tpt}.
+Dieser Vorgang wird so oft wiederholt, wie es Testfälle gibt \cite[vgl.][]{tptsut}.% wodurch ein geschlossener Kreis entsteht.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9,]{Bilder/Quicktest/SUT_TPT.drawio.png}
+\caption{Zusammenhang zwischen SUT und TPT \cite{tptsut}}\label{fig:SUT_TPT}
+\end{figure}
+
+\section*{TPTAPI}
+Mithilfe der TPTAPI kann man das komplette Programm steuern. Die \ac{api} ist in Java geschrieben.
+In TPT ist Jython installiert, womit man die Java Module in Python verwenden und TPT steuern kann.
+Im Listing C.1 im Anhang sind nützliche Funktionen der TPTAPI aufgezählt \cite[vgl.][S. 64 f.]{userguide}.
+%Hier werden ein paar nützliche Funktionen vorgestellt:
+% \section*{Test Execution und Test Assessment}
+% In TPT sind diese beiden streng getrennt. 
+% Bei Execution:
+% Die Testfälle werden durchgeführt. Die Testfälle sind durch automatons, step lists, Variants definiert.
+% Bei der Testdurchführung werden Daten gesammelt.
+% Beim Assessment:
+% Die gesammelten Daten werden hier ausgewertet. ZB Step list wird ausgewertet.
+ % Äquivalenzklasse wird ausgewertet. Die "Check Rules" für die Auswertung werden in 
+ % den Assesslets festgelegt.
+% In TPT werden Execution und Assessment getrennt und sind unabhängig voneinander
+
+\section*{Äquivalenzklassen}
+	\input{Abschnitte/Umsetzung/EquiTPT}

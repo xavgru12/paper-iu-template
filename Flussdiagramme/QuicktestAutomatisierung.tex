@@ -1,0 +1,57 @@
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}%[every node/.style={rectangle,draw,text width=14em,align=center}]
+    [
+      % Stil für Ein- und Ausgabe
+      io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta},
+      % Stil für Operationen
+      op/.style={rectangle, fill=orange!10, draw=orange},
+      op4/.style={rectangle, fill=green!20, draw=green},
+			op2/.style={rectangle, fill=green!20, draw=green, minimum height=2cm, minimum width=38mm},
+			op3/.style={rectangle, fill=orange!10, draw=orange, minimum height=2cm, minimum width=38mm},
+      % Stil für Entscheidungen
+      cn/.style={diamond, aspect=2, inner sep=1pt, fill=red!10, draw=red, minimum width=20mm, minimum height=14mm},
+      cn2/.style={diamond, aspect=2, inner sep=1pt, fill=blue!20, draw=blue, minimum width=20mm, minimum height=14mm},% Distanz zwischen den Knoten
+      node distance=4mm]
+    % Knoten
+    \node[op4] (class) {parse xml and fill objects with data};
+    \node[op4, below=of class] (list) {select first unit in InterfacesByUnit list};
+    %\node[op, below=of list] (firstitem) {select first item in list};
+    \node[cn2, below=of list] (cond1) {};
+    \node[op4, below=of cond1] (finddep) {create folder if not existing};
+    \node[op4, below=of finddep] (depnewlist) {select first interface in interfaces list from unit};
+    \node[cn2, below=of depnewlist] (cond2) {};
+    %\node[op, right=of cond2] (wrongdep) {select next item};
+    %\node[op, below=of cond2] (makefiles) {search for item in dictionary to get makefiles};
+    \node[op4, below=of cond2] (initdep) {create new test case};
+    \node[op4, below=of initdep] (addobject) {Generate steps according to Test Design using all values};
+    \node[cn2, below=of addobject] (cond3) {\shortstack{last interface \\ from unit?}};
+    \node[op4, right=of cond3] (wrongdep) {select next interface};
+    \node[cn2, below=of cond3] (cond4) {\shortstack{last unit?}};
+    \node[op4, left=of cond4] (wrongobject) {select next unit};
+    \node[op4, below=of cond4] (end) {end};
+    
+    \path[->]
+      (class) edge (init)
+			(init) edge (list)
+			(list) edge (cond1)
+      (cond1) edge (finddep)
+      (finddep) edge (depnewlist)
+      (depnewlist) edge (cond2)
+      (cond2) edge (initdep)
+      (initdep) edge (addobject)
+      (addobject) edge (cond3)
+      (cond3) edge node[above=0.2cm] {No}(wrongdep)
+      (cond3) edge node[right=0.2cm] {Yes} (cond4)
+      %(findsubs) edge (findfiles)
+			%(findfiles) edge (cond4)
+      (cond4) edge node[above=0.2cm] {No}(wrongobject)
+      (cond4) edge node[left=0.5cm] {Yes} (end);
+
+    \draw[->] 
+      (wrongdep) --  ++(2,0) |- (cond2);
+	  \draw[->]
+      (wrongobject) -- ++(-2,0) |- (cond1);
+  \end{tikzpicture}
+    \caption{Automatisierung der Testfallerstellung}
+  \end{figure}

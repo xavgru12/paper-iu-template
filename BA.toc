@@ -1,0 +1,50 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {ngerman}{}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Abstract}{vi}{chapter*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Kurzfassung}{vii}{chapter*.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Vorstellung der ZF}{1}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Beschreibung des Themas}{1}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Einordnung der Arbeit}{2}{section.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}TPT}{4}{section.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.5}Ziele}{4}{section.1.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Grundlagen}{5}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Schnittstellen}{5}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Äquivalenzklassentest}{7}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\nonumberline Definition der Äquivalenzklasse}{8}{paragraph*.22}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Konfiguration von TPT}{9}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Analyse des Softcar-Quicktests}{14}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Sourcenmodell für den Quicktest}{18}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Implementierung des Quicktests in TPT}{20}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Konzept für einen Äquivalenzklassentest in TPT}{22}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Diskussion der Ergebnisse}{25}{chapter.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {8}Zusammenfassung und Ausblick}{26}{chapter.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Eidesstattliche Erklärung}{viii}{chapter*.58}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Klassendiagramme der Quicktestimplementierung}{xi}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Flussdiagramm der Quicktestimplementierung}{xiii}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}TPTAPI Funktionen}{xiv}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

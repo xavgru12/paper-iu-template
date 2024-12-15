@@ -1,0 +1,54 @@
+#1: ein Projekt oeffnen
+openResult = TPTAPI.openProject(File("C:\TPTlocal\ProgrammTestfaelle\GenerateTestCases.tptz")) # open tpt-File
+project = openResult.getProject() 
+
+
+#2: eine Step Liste erstellen und mit Steps fuellen 
+#topLevelTslt = project.getTopLevelTestlet()
+#listemitsteps = topLevelTslt.createSLVariant("Test Stepliste", None)
+#dererstestep=listemitsteps.createStep(0, "channel" )
+#listemitsteps.importTestSpecification("Set m_SDC_Public_SDC_TASKCLASS20.SDC_Out.IDcFildForTcl20 to -2147483648 (once)")
+#listemitsteps.importTestSpecification("Compare m_STB_Private_STB_TASKCLASS20.STB_In.IDcFild == -2147483648 (First)")
+#listemitsteps.importTestSpecification("Wait 1")
+
+
+#3: einen Testfall exportieren
+testfallfuerexport= project.getScenarioOrGroupByName("zuExportierenderTest") 
+exportedscenario= testfallfuerexport.exportTestSpecification()
+
+
+#4: eine TestSet erstellen
+gruppe=project.createTestSetGroup("EinNeuesTestSet", None)
+print(gruppe.getName())
+
+
+#5: ein Assessment erstellen
+project.createAssessmentGroup("einNeuesAssessment", None)
+
+
+#6: eine neue Gruppe/Ordner fuer Testfaelle erstellen
+topLevelTslt = project.getTopLevelTestlet()
+neuegruppe=topLevelTslt.createVariantGroup("NeueGruppe", None) #auf hoechster Ebene
+topLevelTslt.createVariantGroup("NeueUnterGruppe", Ordner)  #innerhalb eines Ordners
+
+#7: eine/n Gruppe/Ordner bzw Testfall(Scenario) finden 
+gruppe=project.getScenarioOrGroupByName("STB")
+gefundenegruppe=project.getScenarioOrGroupByName("PTS_In_ACS_Out_UmodPhy")
+
+
+#8: Steps innerhalb einer Step Liste loeschen
+gefundenegruppe.getSteps().clear() 
+
+
+#9: Testfaelle innerhalb einer Gruppe loeschen 
+gruppe.clear() 
+ 
+
+#10: Testfall benennen
+ScenarioGroup.setName("EinNeuerName")
+
+
+#11: Testfall(Scenario) durch Namen finden
+gefunden=ScenarioGroup.getName("zuFindenderTestfall")
+
+

@@ -1,0 +1,127 @@
+\documentclass[11pt]{scrreport}
+
+%von mir
+\usepackage{setspace}
+\usepackage[ngerman]{babel}
+%\usepackage[pdffitwindow=true, pdftex]{hyperref}
+\usepackage[colorlinks=true,
+pdffitwindow=true, 
+pdftex,
+linkcolor=black,
+citecolor=black,
+filecolor=black,
+pagecolor=black,
+urlcolor=black,
+bookmarks=true,
+bookmarksopen=true,
+bookmarksopenlevel=3,
+plainpages=false,
+pdfpagelabels=true]{hyperref}
+%von Mathes
+\usepackage[margin=10pt, font=small, labelfont=bf, parskip=100pt]{caption}[2020/08/23] %von mir und Mathes
+\captionsetup[figure]{justification=centering,labelfont=bf}
+\usepackage[utf8]{inputenc} 	% ä,ö,ü,...
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}	
+\usepackage[%das verändern zu Seitenränder 2,5 cm(inner und outer zu 2,5 , top und bottom weg, andere einstellungen auch weg..
+	bindingoffset=0.5cm,
+	inner=2.5cm,					% 2:3:4:6 für DIN A4
+	top=3cm,
+	outer=2.5cm,
+	bottom=6cm,
+	headheight=40pt,
+	marginparwidth=3cm
+]{geometry}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+% FHWS Farben
+\definecolor{fhws-orange}{cmyk}{0,0.53,1,0}
+\definecolor{fhws-green}{cmyk}{0.41,0,0.78,0}
+\definecolor{fhws-gray-80}{gray}{0.2}
+\definecolor{fhws-gray-60}{gray}{0.4}
+\definecolor{fhws-gray-40}{gray}{0.6}
+\definecolor{fhws-gray-20}{gray}{0.8}
+
+\usepackage{booktabs} 	%	Tabellen schöner setzen	% \toprule, \midrule, \bottomrule
+
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+
+
+
+\usepackage{xspace}
+\newcommand{\cpp}{\mbox{C$++$}\xspace}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+\newcommand{\dahe}{\mbox{d.\,h.}\xspace}
+\newcommand{\ua}{\mbox{u.\,a.}\xspace}
+\newcommand{\bzw}{\mbox{bzw.}\xspace}
+\newcommand{\engl}{\mbox{engl.}\xspace}
+\newcommand{\ggf}{\mbox{ggf.}\xspace}
+\newcommand{\etc}{\mbox{etc.}\xspace}
+\newcommand{\evtl}{\mbox{evtl.}\xspace}
+\newcommand{\usw}{\mbox{usw.}\xspace}
+\newcommand{\vs}{\mbox{vs.}\xspace}
+\newcommand{\vgl}{\mbox{vgl.}\xspace}
+
+
+
+\usepackage{marginnote}
+\usepackage{menukeys}
+
+
+
+%%% semantisches Markup
+\newcommand{\begriff}[1]{\textcolor{fhws-orange}{\emph{\textbf{#1}}}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+\newcommand{\datei}[1]{\textbf{#1}}
+\newcommand{\name}[1]{\textsc{#1}}
+\newenvironment{zitat}{\begin{itshape}\begin{center}}{\end{center}\end{itshape}}
+
+%Code einfügen mit style=customc
+\usepackage{listings}
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\usepackage[backend=biber, style=ieee]{biblatex}
+%\addbibresource{export.bib}
+\addbibresource{LiteraturVeraendert.bib}
+
+\usepackage{acronym}
+
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+
+%fuer Seitenzahl im Hauptteil Seite x von y
+%\usepackage{blindtext}
+\usepackage[automark,autooneside=false,headsepline, footsepline]{scrlayer-scrpage}
+\usepackage{lastpage} 
+%\clearpairofpagestyles
+%\ihead{\leftmark}
+%\ohead{}
+
+\ihead{\headmark}
+\chead{}
+\automark{chapter}
+%\newcommand{\solutionsheet}{%
+%  \clearpairofpagestyles
+%  \ofoot*[{Seite \thepage\ von 26}]{Seite \thepage\ von 26}
+%
+%}
+
+  

@@ -1,0 +1,118 @@
+In diesem Kapitel wird ein bestehender Schnittstellentest analysiert. Der Schnittstellentest heißt bei \ac{zf} Quicktest.
+Der Quicktest wird in Softcar ausgeführt, was ein Programm für \ac{sil} Tests ist, das von \ac{zf} entwickelt wurde.
+
+Schnittstellen der Projekte in meiner Abteilung werden in einer \ac{xml} definiert, die Datafield heißt.
+Wie in Abschnitt 2.1 beschrieben, werden \ac{xml} Daten an sich sowie der Zugriff auf jene im Sinne eines Schnittstellentests
+überprüft. Der Quicktest bei \ac{zf} begrenzt sich auf den Test des Zugriffs. Um die Schnittstellen im C Code zu
+verwenden, werden Makros aus der Datafield generiert. Mit den Makros kann auf die Signale zugegriffen werden (siehe Kapitel 4).
+Die Verbindung zweier Signale, eine Schnittstelle, erfolgt durch den Einsatz der Makros. Der Quicktest überprüft, ob
+diese Verbindung korrekt ist.
+
+Das Flussdiagramm in Abbildung 3.1 gibt einen Überblick, was beim Aufruf des Quicktests ausgeführt wird.
+Im Grunde genommen wird eine Quicktest.c, die die Schnittstellentests beinhaltet, generiert und mit dem Gesamtprojekt kompiliert. 
+Die kompilierte \ac{exe} Datei wird in Softcar ausgeführt und fehlgeschlagene Tests
+werden in eine Text-Datei als error log geschrieben \cite[vgl.][]{quicktestc}\cite[vgl.][]{quicktestlog}\cite[vgl.][]{datafield}.
+
+\input{Abschnitte/Methoden/Quicktest/QuicktestDiagramm.tex}
+\newpage
+\section*{Generieren der Datafield}
+Datafield ist ein \ac{zf} interner Begriff. Jede Komponente besitzt eine Datafield, in der im Wesentlichen im \ac{xml} Format die Signale definiert werden.
+Aus den Datafields der Komponente wird eine gesamte Datafield generiert, die die Signale aller Komponente beinhaltet \cite[vgl.][]{datafield}.
+
+\section*{Generieren der Quicktest.c}
+Schnittstellentests werden in diese Datei automatisiert geschrieben.
+Folgende Daten werden dafür benötigt:
+\begin{itemize}
+\item Signale und deren Schnittstelleninformationen aus der Datafield \cite[vgl.][]{datafield}% (xml\_info.xml)
+\item Funktionsaufrufe, in denen Schnittstellen definiert sind
+\end{itemize}
+
+Jede Schnittstelle wird mit Werten getestet, die in Abbildung 3.2 zu sehen sind.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.9,]{Bilder/EquiZeitstrahl/QuicktestSignalstrahl.png}
+\caption{Quicktest Werte auf einem Signalstrahl \cite[vgl.][]{quicktestc}}
+\end{figure}
+Es werden jeweils die untere und obere Datentypsgrenze als Werte genommen. Das ist im Sinne einer Grenzwertanalyse, denn
+Grenzwerte verursachen oft ein fehlerhaftes Verhalten \cite[vgl.][S. 36]{integration}. 
+Es wird jeweils eine Ganzzahl unter der oberen und eine Ganzzahl über der unteren Grenze getestet. Die Null wird auch getestet.
+Ein physikalisches Limit kommt hier auch vor. Das ist ein Relikt, in dem eine Konvertierung und Skalierung zwischen zeitdiskreten Werten auf den vollen
+Datentypsbereich stattfand. Es hat jetzt keine Bedeutung mehr.\par% und muss nicht mehr getestet werden.
+
+In Abbildung 3.3 ist ein Flussdiagramm zu sehen. Es zeigt die Logik eines Schnittstellentests, wie sie in der Quicktest.c 
+geschrieben ist. 
+Im späteren Verlauf wird der Einfachheit halber ein Ein- und Ausgangssignal gesprochen, die im Folgenden kurz erklärt werden.
+\begin{description}
+\item[Ausgangssignal] Ein Signal, das aus der ersten Komponente austritt.
+\item[Eingangssignal] Ein Signal, das in die zweite Komponente eintritt.
+\item[Eine Schnittstelle] verbindet das Ausgangssignal mit dem Eingangssignal.
+\end{description}
+Zuerst wird das Ausgangssignal auf einen der Werte gesetzt. Es wird die Funktion aufgerufen, in der
+die Schnittstelle im Code steht. Daraufhin wird das Eingangssignal überprüft. Der Test ist erfolgreich, wenn 
+das Eingangssignal denselben Wert hat wie der Wert, auf die das Ausgangssignal gesetzt wurde. Hat das Eingangssignal einen
+anderen Wert, so ist der Test fehlgeschlagen \cite[vgl.][]{quicktestc}\cite[vgl.][]{quicktestlog}.
+% Wenn das Eingangssignal auf den Wert ist, der Wenn es den gleichen Wert wie der Wert, der
+% dem Ausgangssignal zugewiesen wurde, besitzt, so ist der Test erfolgreich. Wenn es ein anderer Wert ist, so ist der Test fehlgeschlagen.
+% %wie eine Schnittstelle durch die Quicktest.c getestet wird.
+%Im Nachfolgendem ist ein Flussdiagramm, wie eine Schnittstelle durch die Quicktest.c getestet wird:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.6,]{Bilder/Quicktest/QuicktestLogik.drawio.png}
+\caption{Quicktest Logik \cite[vgl.][]{quicktestc}}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+% Schnittstellentest:\\ 
+	% - Signalverbindungen zwischen der FUs testen:\\
+	  % Ausgangssignal einer FU wird zum Eingangssignal der zweiten FU. Test, ob diese Verbindung besteht\\
+	% - Testablauf: Ausgangssignal wird auf einen Wert gesetzt und es wird überprüft, ob es als Eingangssignal in der zweiten FU ankommt
+
+% Ein c sharp Skript erzeugt die Datei Quicktest.c\\
+% C sharp Skript:\\
+% Parsen der xml\_info.xml, darin findet er Out und In Labelverbindungen, sowie Datentyp
+% Und Ordner zu .txt Dateien: Funkltionsaufrufe, wo die Verbindung zwischen Ausgangslabel und Eingangslabel hergestellt wird\\
+
+% Quicktest.c wird inklusive des Gesamtprojekts kompiliert und gelinkt\\
+
+% Quicktest.c:\\
+% 1. Ausgangslabel einer FU wird auf Werte gesetzt, \\
+% 2. Funktionsaufruf, wo die Verbindung der FUs hergestellt wurde\\
+% 3. Wert wird am Eingangslabel überprüft\\
+
+% Auf welche Werte gesetzt?\\
+% Abhängig vom Datentyp, auf unteren und oberen Grenzwert, 0, physical Min und physical Max 
+% Falls float: Fehlertoleranz auf 0.00001f, Überprüfen Eingangslabel auf <  und   > der Fehlertoleranz
+
+% EIN BEISPIEL MIT SDC OUT STB IN IDCFILD ZEIGEN
+
+% Entweder einen Wert oder alle Werte der Schnittstelle
+
+% % Beispiel:
+% % m_ACS_Public_ACS_TASKCLASS11.ACS_Out.Umod = (CONV_ONE_FLOAT32)(-3.402E+38);
+
+% % m_PTS_Private_PTS_TASKCLASS11.PTS_In.UmodPhy < (CONV_ONE_FLOAT32)((-3.402E+38) - (0.00001f)) ||
+      % % m_PTS_Private_PTS_TASKCLASS11.PTS_In.UmodPhy > (CONV_ONE_FLOAT32)((-3.402E+38) + (0.00001f)) )
+
+
+% %zweiter Sinn des Quicktests:
+% %Überprüfen auf Gleichheit der Datentypen von Ein und Ausgangslabel
+% % Überpüfen, ob Signale einer Schnittstelle den gleichen Datentyp haben, typecast der Signale zur Überprüfung
+
+% % Grenzwerte des Datentyps überprüfen, auch mit typecast auf Datentyp
+% % 0 Wert überprüfen, ohne typecast
+
+% \includegraphics[scale=.6,]{Bilder/Quicktest/AnalyseQuicktest.drawio.png}
+% \textbf{Bildinfo Schnittstellen:\\
+% Klärung, was eine Schnittstelle ist}

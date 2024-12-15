@@ -1,0 +1,107 @@
+\begin{figure}[!h]
+    \centering
+
+
+  \begin{tikzpicture}%[every node/.style={rectangle,draw,text width=14em,align=center}]
+    [
+      % Stil für Ein- und Ausgabe
+      io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta},
+      % Stil für Operationen
+      op/.style={rectangle, fill=orange!10, draw=orange},
+      op4/.style={rectangle, fill=green!20, draw=green},
+			op2/.style={rectangle, fill=green!20, draw=green, minimum height=2cm, minimum width=38mm},
+			op3/.style={rectangle, fill=orange!10, draw=orange, minimum height=2cm, minimum width=38mm},
+      % Stil für Entscheidungen
+      cn/.style={diamond, aspect=2, inner sep=1pt, fill=red!10, draw=red, minimum width=20mm, minimum height=14mm},
+      cn2/.style={diamond, aspect=2, inner sep=1pt, fill=blue!20, draw=blue, minimum width=20mm, minimum height=14mm},% Distanz zwischen den Knoten
+      node distance=4mm]
+    % Knoten
+    %\node[op4] (class) {GSIL Projekt als Ausgang};
+    
+    \node[op4] (init) {C-Plattform Konfiguration};
+    \node[op4, below=of init] (list) {Analysieren der Dateien};
+    %\node[op, below=of list] (firstitem) {select first item in list};
+%    \node[cn2, below=of list] (cond1) {};
+    \node[op4, below=of list] (compile) {Generieren des TPT Testrahmens und Kompilieren};
+    \node[op4, below=of compile] (depnewlist) {Testfallerstellung};
+    \node[op4, below=of depnewlist] (execution) {\textit{Execution} Konfiguration};
+    \node[op4, below=of execution] (final) {Testdurchführung};
+%    \node[cn2, below=of depnewlist] (cond2) {};
+    %\node[op, right=of cond2] (wrongdep) {select next item};
+    %\node[op, below=of cond2] (makefiles) {search for item in dictionary to get makefiles};
+    % \node[op4, below=of cond2] (initdep) {initialize object using item};
+    % \node[op4, below=of initdep] (addobject) {add to object list};
+    % \node[cn2, below=of addobject] (cond3) {\shortstack{last item from \\ dependency list?}};
+    % \node[op4, right=of cond3] (wrongdep) {select next item};
+    % \node[op4, below=of cond3] (findsubs) {object.findSubdirectories()};
+    % \node[op4, below=of findsubs] (findfiles) {object.findFiles()};
+    % \node[cn2, below=of findfiles] (cond4) {\shortstack{last item from\\ object list?}};
+    % \node[op4, left=of cond4] (wrongobject) {select next item};
+    % \node[op4, below=of cond4] (end) {Ende};
+    
+    \path[->]
+		%(class) edge (init)
+		(init) edge (list)
+		(list) edge (compile)
+		(compile) edge (depnewlist)
+		(depnewlist) edge (execution)
+		(execution) edge (final);
+      % (finddep) edge (depnewlist)
+      % (depnewlist) edge (cond2)
+      % (cond2) edge (initdep)
+      % (initdep) edge (addobject)
+      % (addobject) edge (cond3)
+      % (cond3) edge node[above=0.2cm] {No}(wrongdep)
+      % (cond3) edge node[right=0.2cm] {Yes} (findsubs)
+      % (findsubs) edge (findfiles)
+			% (findfiles) edge (cond4)
+      % (cond4) edge node[above=0.2cm] {No}(wrongobject)
+      % (cond4) edge node[left=0.5cm] {Yes} (end);
+
+    % \draw[->] 
+      % (wrongdep) --  ++(2,0) |- (cond2)
+      % (wrongobject) -- ++(-2,0) |- (cond1);
+		% \draw[->] (cond2) -- node[below] {Nein} ++(2.9,0) -- (entscheid);
+		% \draw[->] (cond4) -- node[below] {Nein} ++(4.0,0) -| (gescheitert2);
+		% \draw[->] (cond3) -- node[below] {Nein} ++(-4.0,0) -| (gescheitert3);
+      %(wrongdep) edge (cond1);
+			% (cond1) edge node[right] {Ja} (cond2)
+			% (cond2) edge node[below] {Ja} (gesetz2);
+    
+    % \node[cn, align=center, below=of begehren] (cond1) {okay\\Unterschriften?};
+		% \node[cn, align=center, below=of cond1] (cond2) {Landtag nimmt\\Gesetzentwurf an?};
+		% \node[op3, align=center, right=of cond1] (gescheitert) {Volksbegehren\\gescheitert};
+		% \node[op, align=center, right=of cond2] (entscheid) {Volksentscheid};
+		% \node[io, below=of entscheid] (abstimmung) {Stimmen Sie ab!};
+		% \node[cn, align=center, below=of abstimmung] (cond3) {Mehrheit stimmt\\mit Ja?};
+		% \node[cn, align=center, below=of cond3] (cond4) {Mehr als ein Drittel\\aller Stimmberechtigten\\ stimmt mit Ja?};
+		% \node[op2, align=center, below=of cond4] (gesetz) {Gesetz};
+		% \node[op3, align=center, right=of gesetz] (gescheitert2) {Volksbegehren\\gescheitert};
+		% \node[op3, align=center, left=of gesetz] (gescheitert3) {Volksbegehren\\gescheitert};
+		% \node[op2, align=center, left=of cond2] (gesetz2) {Gesetz};
+    % % Kanten
+    % \path[->]
+    %   (begehren) edge (cond1)
+		% 	(entscheid) edge (abstimmung)
+		% 	(abstimmung) edge (cond3)
+    %   (cond3) edge node[right] {Ja} (cond4)
+		% 	(cond4) edge node[right] {Ja} (gesetz)
+		% 	(cond1) edge node[right] {Ja} (cond2)
+		% 	(cond2) edge node[below] {Ja} (gesetz2);
+
+    % \draw[->] (cond1) -- node[below] {Nein} ++(2.8,0) -- (gescheitert);
+		% \draw[->] (cond2) -- node[below] {Nein} ++(2.9,0) -- (entscheid);
+		% \draw[->] (cond4) -- node[below] {Nein} ++(4.0,0) -| (gescheitert2);
+		% \draw[->] (cond3) -- node[below] {Nein} ++(-4.0,0) -| (gescheitert3);
+
+  \end{tikzpicture}
+  \caption{Flussdiagramm TPT Einrichtung \cite[vgl.][S. 39]{userguide}}
+  \end{figure}
+
+%\textbf{Bildinfo Implementierung Quicktest: Überblick, was man in TPT alles für den Quicktest einstellen muss}
+
+% \section*{Testfallerstellung}
+% \section*{C Platform Konfiguration}
+% Scheduler, TPT Binding, Auswahl der Sourcen, import interface?, Compiler
+
+% großes grünes Flussdiagrammweg

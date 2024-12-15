@@ -1,0 +1,31 @@
+\section*{Schnittstellentest}
+Es ist nicht gelungen die Laufzeit des Quicktests zu verbessern.
+Es ist noch ein großes Potenzial vorhanden, denn TPT muss noch besser für das Softwareprojekt konfiguriert werden.
+Derzeit ist es nicht möglich einzelne Dateien von TPT analysieren und kompilieren zu lassen. Da die Schnittstellen
+jeweils nur in einer Datei einer Komponente definiert sind, könnte sehr viel Laufzeit eingespart werden.
+Das Jython Skript, das die Testfälle für den Quicktest automatisiert generiert, funktioniert soweit. Es legt Ordner an,
+so wie es im Softwareprojekt auch der Fall ist, sodass sich Entwickler schnell zurecht finden können.
+Es ist zwar nicht die Gesamtlaufzeit verbessert worden, aber es ist jetzt möglich, dass einzelne Komponenten oder gar Schnittstellen alleine getestet
+werden.% TPT gibt beim Quicktest einen Fehler aus, Windows Fehler. 
+% jeweils nur eine Datei 
+
+% Nicht gelungen den Quicktest zu optimieren(Zeiteffizienz verbessern)
+% Testausführung dauert sehr lange, Grund; GSIL hat Probleme in TPT Konfiguration
+
+% Automatisierung der Testfälle, hat gut funktioniert mit TPTAPI
+% keinen Parser gebaut, der Funktionsaufrufe für Quicktest findet
+% Generell alle Funktionen von den Task.c auf Schedule stellen, beziehungsweise Artefakte Ordner benutzen
+% Probleme mit Windows Fehler.. ansonsten funktioniert Quicktest 
+
+\section*{Äquivalenzklassentest}
+Es wurde eine gute Grundlage geschaffen, sodass ein Äquivalenzklassentest in naher Zukunft eingeführt werden kann.
+Es wurde ein Konzept erarbeitet, das man schnell einführen kann. Es wurde gezeigt, wie \ac{sil} Tests überprüft werden kann. 
+Es wurde gezeigt wie Testfälle mit Äquivalenzklassen von TPT generiert werden können. Die große Arbeit ist alle
+Äquivalenzklassen für jedes Signal zu definieren. Durch das Definieren wird eine Datenbasis geschaffen, die auch für
+andere Tests eingesetzt werden kann. 
+% Konzept aufgezeigt, aufgezeigt, dass es machbar ist und auch schnell einsetzbar durch Generieren von
+% Äquivalenzklassen 
+% schnell einsetzbar, beim Überprüfen der SIl Tests müssen nur alle Signale, die im Test verwendet werden
+% als Assesslet Equi angegeben werden plus Definition der Äquivalenzklassen
+% Es ist denkbar, ein Skript zu schreiben, das alle Signale, die im Testfall vorkommen, als  Äquivalenzklassen
+% Assessment auswählt.

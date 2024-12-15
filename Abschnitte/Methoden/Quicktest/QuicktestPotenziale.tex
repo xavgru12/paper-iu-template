@@ -1,0 +1,51 @@
+%\newpage
+Ein Potenzial des Quicktests ist, dass die Laufzeit verbessert werden kann. Um die Schnittstellen zu überprüfen, ist es
+nicht nötig das Gesamtprojekt zu kompilieren, da jeweils nur eine C Datei einer Komponente benötigt wird. 
+Um es möglich zu machen, dass jeweils 
+nur eine C Datei pro Komponente analysiert wird, muss die Verbindung zu anderen Dateien getrennt und mit einem Platzhalter ersetzt werden.
+Dieses Abtrennen wird auch Stubben genannt \cite[vgl.][S. 337]{integration}.
+Nach dem Status Quo ist das Stubben nicht möglich, da das Gesamtprojekt zu 
+einer \ac{exe} kompiliert wird. Beim Kompilieren zu einer \ac{exe} werden alle Abhängigkeiten benötigt und es kann nicht gestubbt werden.
+Mit TPT können Dateien gestubbt werden.
+
+% Das bestehende Konzept hinter dem Quicktest ist, dass das Gesamtprojekt inklusive der Quicktest.c kompiliert und gelinkt wird. 
+% Es werden alle Sourcen kompiliert, da der Compiler alle Abhängigkeiten benötigt. Aufgrund der Größe des Projekts dauert das Kompilieren
+% länger als eine Stunde.
+% %(Die daraus resultierende exe wird ausgeführt und ein log Datei wird beschrieben.)
+% Das große Potenzial besteht darin, dass es
+% nicht nötig ist, das Gesamtprojekt zu kompilieren, da pro Unit jeweils nur eine einzige Source benötigt wird. Es wird eine 
+% Möglichkeit gesucht, dass nur die bestimmten Sourcen auf die Schnittstellen überprüft werden. TPT bietet dafür die Option,
+% dass für den Schnittstellentest unbedeutende Dateien gestubbt werden. 
+
+Ein weiteres Potenzial ist, dass ein Ordner mit Artefakten im Projekt hinfällig gemacht werden kann und somit 
+auch nicht gepflegt werden muss. Es gibt nämlich einen Ordner, in denen Funktionsaufrufe des Quicktests je Komponente
+in Text-Dateien stehen. Indem ein Parser sich für den Quicktest automatisiert die Funktionsaufrufe zusammensucht, 
+müssen die Dateien nicht mehr abgelegt werden.
+Dadurch erreicht man, dass die Funktionsaufrufe immer up to date sind und nicht mehr händisch gepflegt werden müssen.
+% Die Funktionsaufrufe für den Quicktest liegen in
+% einem Ordner dauerhaft ab. Vermutlich wurde die Liste einmal manuell erstellt. Dies ist nicht von Vorteil, da bei 
+% dementsprechenden Veränderungen auch die Liste mit den Funktionsaufrufen per Hand gepflegt werden müssen. Es wäre
+% sinnvoll diese Informationen automatisiert zu bekommen. Damit wären die Funktionsaufrufe immer up to date und es
+% wären die Artefakte auch nicht im Projekt abgelegt.
+
+
+
+
+
+
+
+
+% Gründe, warum Quicktest langsam ist:\\
+% Alle Sourcen werden kompiliert\\
+
+% Es wird eine exe erzeugt, die Softcar übergeben wird\\
+% Um eine exe zu erhalten müssen ALLE Sourcen kompiliert werden, da Compiler alle Abhängigkeiten(includes etc) benötigt\\
+
+
+% Einmaliger Funktionsaufruf, um Werte einer FU Task zu übergeben, anstatt für jedes Label einzeln den Funktionsaufruf zu starten\\
+
+% Eine exe wird erzeugt, da Softcar eine exe benötigt. TPT ebnötigt keine exe. TPT kann Fehlende Softwareteile stubben.\\
+
+
+% Artefakte (Funktionsaufrufe) werden in einem Ordner abgespeichert und dann vom C Sharp Skript benutzt. 
+% Das macht man nicht! Es sollten die Infos für die Funktion geparst werden und dann im Skript benutzt. Diese Infos müssen nicht in einem Ordner dauerhaft gespeichert werden

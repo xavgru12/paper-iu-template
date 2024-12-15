@@ -1,0 +1,148 @@
+\input{config.sty}
+\lstset{
+	language={},                % {} für normalen Klartext
+	backgroundcolor=\color{white},
+	linewidth=\linewidth,       % Zeilenbreite
+	breaklines=true,             % Zeileumbruch
+	breakatwhitespace=true, %Umbruch an Leerzeichen
+%	caption = test listing       % Überschrift 
+}
+
+
+\begin{document}
+		\input{Abschnitte/Deckblatt.tex}
+	\onehalfspacing
+	%INHALTSVERZEICHNIS
+		\tableofcontents
+	\chapter*{Sperrvermerk}
+		\input{Abschnitte/sperrvermerk.tex}
+		
+	\chapter*{Abkürzungsverzeichnis}
+		\input{Abschnitte/abbr.tex}
+		
+		
+	\addchap{Abstract}
+		\input{Abschnitte/abstract.tex}
+	\addchap{Kurzfassung}
+		\input{Abschnitte/Kurzzusammenfassung.tex}
+	% Test footcite \footcite{TPT}
+	%Test cite \cite[Vgl.][S.223]{TPT}
+	% Zitat parencite1 \parencite{TPT}. \\
+% %Zitat 2 \cite{Test}. \\
+% textcite 3 \textcite{TPT}. \\
+% footcite 4 \footcite{TPT}. \\
+% footfullcite 5 \footfullcite{TPT}. \\
+% %Das zweite Beispiel \footcite[Vgl.][S.223]{hacker}.
+% %Das dritte Beispiel \footcite[Vgl.][S.223]{hacker}.
+
+	
+	\chapter{Einleitung}
+	\newcounter{generell}
+	\setcounter{generell}{\value{page}}
+	\pagenumbering{arabic}
+	
+		\section{Vorstellung der ZF}
+			\input{Abschnitte/Einleitung/zf.tex}
+		\section{Beschreibung des Themas}
+			\input{Abschnitte/Einleitung/thema.tex}
+		\section{Einordnung der Arbeit}
+			\input{Abschnitte/Einleitung/einordnung.tex}
+		\newpage
+		\section{TPT}
+			\input{Abschnitte/Einleitung/TPT.tex}
+		
+		\section{Ziele}
+			\input{Abschnitte/Einleitung/ziele.tex}
+	
+			
+			
+	%\chapter{Methoden}
+		% \section{Stand der Technik}
+				% \subsection{in der Wissenschaft}
+			% \input{Abschnitte/Methoden/wissenschaft.tex}
+				% \subsection{bei ZF}
+			% \input{Abschnitte/Methoden/stand_zf.tex}
+		% \section{TPT als Programm}
+			% \input{Abschnitte/Methoden/TPTProgramm.tex}
+		%\newpage
+		\chapter{Grundlagen}
+			\input{Abschnitte/Methoden/Grundlagen.tex}
+			\section{Schnittstellen}
+				\input{Abschnitte/Methoden/Schnittstellentest.tex}
+			\section{Äquivalenzklassentest}%mathematische Grundlagen Äquivalenzklassentest
+				\input{Abschnitte/Methoden/EquiTest.tex}
+			\section{Konfiguration von TPT}
+				\input{Abschnitte/Methoden/TPTProgramm.tex}
+
+	
+		\chapter{Analyse des Softcar-Quicktests}
+			\input{Abschnitte/Methoden/Quicktest/analyseQuicktest.tex}
+		\newpage
+		\section*{Potenziale}
+			\input{Abschnitte/Methoden/Quicktest/QuicktestPotenziale.tex}
+		\chapter{Sourcenmodell für den Quicktest}
+			%\input{Abschnitte/Methoden/Quicktest/Makros.tex}
+			\input{Abschnitte/Methoden/Quicktest/nachstellenCQuicktest.tex}
+		
+
+
+	\chapter{Implementierung des Quicktests in TPT}
+		%Schlussfolgerungen aus den Analysen
+			%\section{Implementierung des Quicktests in der neuen Toolumgebung TPT}
+		\input{Abschnitte/Umsetzung/ImplementierungQuicktest.tex}
+				%\subsection{Testfallerstellung}
+					%\input{Abschnitte/Umsetzung/Testfallerstellung.tex}
+					%\input{Abschnitte/Umsetzung/ImplementierungQuicktestDiagramm.tex}	
+					%\input{Abschnitte/Umsetzung/UmsetzungQuicktest.tex}
+		\section*{Automatisierung der Testfallerstellung}
+				\input{Abschnitte/Umsetzung/AutomatisierungQuicktest.tex}
+			%\addvspace{300cm}
+	\chapter{Konzept für einen Äquivalenzklassentest in TPT}
+		\input{Abschnitte/Umsetzung/KonzeptEqui.tex}
+					
+					
+	\chapter{Diskussion der Ergebnisse}
+		\input{Abschnitte/diskussion.tex}
+		%Ergebnisse interpretieren, einordnen, Vor und Nachteile 
+		
+		
+	\chapter{Zusammenfassung und Ausblick}
+		\input{Abschnitte/zusammenfassung.tex}
+		% \section{Zusammenfassung}
+			% Ziele der Bachelorarbeit erreicht?
+			% Gedanken von Einleitung aufgreifen
+		% \section{Ausblick}
+			% neue offene Fragen (Ausblick)
+			% was konnte nicht umgesetzt werden und warum? (Ausblick)
+		\label{LastPage}
+		\newcounter{letzte}
+		\setcounter{letzte}{\value{page}}
+		
+		
+	
+			
+	\addchap{Eidesstattliche Erklärung}
+		\pagenumbering{roman}
+		\setcounter{page}{\value{generell}}
+		\input{Abschnitte/erklaerung.tex}
+	\listoffigures
+	\lstlistoflistings
+	\appendix
+		\chapter{Klassendiagramme der Quicktestimplementierung}
+			\input{Abschnitte/Klassendiagramme.tex}
+				%\section{Test bla bla}
+				% \begin{figure}[!h]
+				% \centering
+				% \includegraphics[scale=.5,angle=-90]{Bilder/Quicktest/Klassen/QuicktestKlassendiagramm.drawio.png}
+				% \caption{Aggregation der Klassen}
+				% \end{figure}
+		\chapter{Flussdiagramm der Quicktestimplementierung}
+			\input{Flussdiagramme/QuicktestAutomatisierung.tex}
+		\chapter{TPTAPI Funktionen}
+		%WichtigeTPTAPIFunktionenerklaert.tptapi
+			%\lstinputlisting[style=customc, caption=C Datei Quicktest]{Code/TestfallmitDatafield.c}
+			\lstinputlisting[style=customc, caption=TPTAPI Funktionen]{Code/WichtigeTPTAPIFunktionenerklaert.tptapi}
+
+	\printbibliography
+
+\end{document}
