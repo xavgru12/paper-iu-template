@@ -1,9 +1,7 @@
 \documentclass[11pt]{scrreport}
 
-%von mir
 \usepackage{setspace}
 \usepackage[english]{babel}
-%\usepackage[pdffitwindow=true, pdftex]{hyperref}
 \usepackage[colorlinks=true,
 pdffitwindow=true, 
 pdftex,
@@ -17,8 +15,7 @@ bookmarksopen=true,
 bookmarksopenlevel=3,
 plainpages=false,
 pdfpagelabels=true]{hyperref}
-%von Mathes
-\usepackage[margin=10pt, font=small, labelfont=bf, parskip=100pt]{caption}[2020/08/23] %von mir und Mathes
+\usepackage[margin=10pt, font=small, labelfont=bf, parskip=100pt]{caption}[2020/08/23] 
 \captionsetup[figure]{justification=centering,labelfont=bf}
 
 \usepackage[utf8]{inputenc} 	% ä,ö,ü,...
@@ -102,29 +99,17 @@ pdfpagelabels=true]{hyperref}
 }
 
 \usepackage[backend=biber, style=apa]{biblatex}
-%\addbibresource{export.bib}
-\addbibresource{LiteraturVeraendert.bib}
+\addbibresource{Literatur.bib}
 
 \usepackage{acronym}
 
 \renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
 
-%fuer Seitenzahl im Hauptteil Seite x von y
-%\usepackage{blindtext}
 \usepackage[automark,autooneside=false,headsepline, footsepline]{scrlayer-scrpage}
 \usepackage{lastpage} 
 \usepackage{csquotes}
-%\clearpairofpagestyles
-%\ihead{\leftmark}
-%\ohead{}
 
 \ihead{\headmark}
 \chead{}
 \automark{chapter}
-%\newcommand{\solutionsheet}{%
-%  \clearpairofpagestyles
-%  \ofoot*[{Seite \thepage\ von 26}]{Seite \thepage\ von 26}
-%
-%}
-
   
