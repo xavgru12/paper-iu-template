@@ -20,15 +20,17 @@ pdfpagelabels=true]{hyperref}
 %von Mathes
 \usepackage[margin=10pt, font=small, labelfont=bf, parskip=100pt]{caption}[2020/08/23] %von mir und Mathes
 \captionsetup[figure]{justification=centering,labelfont=bf}
+
 \usepackage[utf8]{inputenc} 	% ä,ö,ü,...
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}	
-\usepackage[%das verändern zu Seitenränder 2,5 cm(inner und outer zu 2,5 , top und bottom weg, andere einstellungen auch weg..
-	bindingoffset=0.5cm,
-	inner=2.5cm,					% 2:3:4:6 für DIN A4
-	top=3cm,
-	outer=2.5cm,
-	bottom=6cm,
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[
+	inner=2cm,
+	top=2cm,
+	outer=2cm,
+	bottom=2cm,
 	headheight=40pt,
 	marginparwidth=3cm
 ]{geometry}
