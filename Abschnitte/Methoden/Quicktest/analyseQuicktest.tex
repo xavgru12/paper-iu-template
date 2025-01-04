@@ -11,19 +11,19 @@ diese Verbindung korrekt ist.
 Das Flussdiagramm in Abbildung 3.1 gibt einen Überblick, was beim Aufruf des Quicktests ausgeführt wird.
 Im Grunde genommen wird eine Quicktest.c, die die Schnittstellentests beinhaltet, generiert und mit dem Gesamtprojekt kompiliert. 
 Die kompilierte \ac{exe} Datei wird in Softcar ausgeführt und fehlgeschlagene Tests
-werden in eine Text-Datei als error log geschrieben \cite[vgl.][]{quicktestc}\cite[vgl.][]{quicktestlog}\cite[vgl.][]{datafield}.
+werden in eine Text-Datei als error log geschrieben \parencite[]{quicktestc}\parencite[]{quicktestlog}\parencite[]{datafield}.
 
 \input{Abschnitte/Methoden/Quicktest/QuicktestDiagramm.tex}
 \newpage
 \section*{Generieren der Datafield}
 Datafield ist ein \ac{zf} interner Begriff. Jede Komponente besitzt eine Datafield, in der im Wesentlichen im \ac{xml} Format die Signale definiert werden.
-Aus den Datafields der Komponente wird eine gesamte Datafield generiert, die die Signale aller Komponente beinhaltet \cite[vgl.][]{datafield}.
+Aus den Datafields der Komponente wird eine gesamte Datafield generiert, die die Signale aller Komponente beinhaltet \parencite[]{datafield}.
 
 \section*{Generieren der Quicktest.c}
 Schnittstellentests werden in diese Datei automatisiert geschrieben.
 Folgende Daten werden dafür benötigt:
 \begin{itemize}
-\item Signale und deren Schnittstelleninformationen aus der Datafield \cite[vgl.][]{datafield}% (xml\_info.xml)
+\item Signale und deren Schnittstelleninformationen aus der Datafield \parencite[]{datafield}% (xml\_info.xml)
 \item Funktionsaufrufe, in denen Schnittstellen definiert sind
 \end{itemize}
 
@@ -33,10 +33,10 @@ Jede Schnittstelle wird mit Werten getestet, die in Abbildung 3.2 zu sehen sind.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.9,]{Bilder/EquiZeitstrahl/QuicktestSignalstrahl.png}
-\caption{Quicktest Werte auf einem Signalstrahl \cite[vgl.][]{quicktestc}}
+\caption{Quicktest Werte auf einem Signalstrahl \parencite[]{quicktestc}}
 \end{figure}
 Es werden jeweils die untere und obere Datentypsgrenze als Werte genommen. Das ist im Sinne einer Grenzwertanalyse, denn
-Grenzwerte verursachen oft ein fehlerhaftes Verhalten \cite[vgl.][S. 36]{integration}. 
+Grenzwerte verursachen oft ein fehlerhaftes Verhalten \parencite[S. 36]{integration}. 
 Es wird jeweils eine Ganzzahl unter der oberen und eine Ganzzahl über der unteren Grenze getestet. Die Null wird auch getestet.
 Ein physikalisches Limit kommt hier auch vor. Das ist ein Relikt, in dem eine Konvertierung und Skalierung zwischen zeitdiskreten Werten auf den vollen
 Datentypsbereich stattfand. Es hat jetzt keine Bedeutung mehr.\par% und muss nicht mehr getestet werden.
@@ -52,7 +52,7 @@ Im späteren Verlauf wird der Einfachheit halber ein Ein- und Ausgangssignal ges
 Zuerst wird das Ausgangssignal auf einen der Werte gesetzt. Es wird die Funktion aufgerufen, in der
 die Schnittstelle im Code steht. Daraufhin wird das Eingangssignal überprüft. Der Test ist erfolgreich, wenn 
 das Eingangssignal denselben Wert hat wie der Wert, auf die das Ausgangssignal gesetzt wurde. Hat das Eingangssignal einen
-anderen Wert, so ist der Test fehlgeschlagen \cite[vgl.][]{quicktestc}\cite[vgl.][]{quicktestlog}.
+anderen Wert, so ist der Test fehlgeschlagen \parencite[]{quicktestc}\parencite[]{quicktestlog}.
 % Wenn das Eingangssignal auf den Wert ist, der Wenn es den gleichen Wert wie der Wert, der
 % dem Ausgangssignal zugewiesen wurde, besitzt, so ist der Test erfolgreich. Wenn es ein anderer Wert ist, so ist der Test fehlgeschlagen.
 % %wie eine Schnittstelle durch die Quicktest.c getestet wird.
@@ -61,7 +61,7 @@ anderen Wert, so ist der Test fehlgeschlagen \cite[vgl.][]{quicktestc}\cite[vgl.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=.6,]{Bilder/Quicktest/QuicktestLogik.drawio.png}
-\caption{Quicktest Logik \cite[vgl.][]{quicktestc}}
+\caption{Quicktest Logik \parencite[]{quicktestc}}
 \end{figure}
 
 

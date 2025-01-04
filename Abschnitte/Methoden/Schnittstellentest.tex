@@ -6,9 +6,9 @@ In Abbildung 2.1 ist zu sehen, wie zwei Komponenten durch eine Schnittstellendef
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=.9,]{Bilder/Quicktest/Schnittstelle.png}
-\caption{Schnittstellen \cite[S.218]{integration}}\label{fig:schnitt}
+\caption{Schnittstellen \parencite[S.218]{integration}}\label{fig:schnitt}
 \end{figure}
-Es gibt verschiedene Arten, wie man eine Schnittstelle definieren kann \cite[vgl.][S. 218 ff.]{integration}:
+Es gibt verschiedene Arten, wie man eine Schnittstelle definieren kann \parencite[S. 218 ff.]{integration}:
 \begin{description}
 \item[unstrukturierte Datenübergabe] Es gibt keine feste Schnittstellendefinition. 
 Der Empfänger muss die Daten selbst interpretieren. %Automatisierte Analysen sind kaum möglich.
@@ -39,18 +39,18 @@ möglich ist.
 Für den Schnittstellentest benötigt es zwei Schritte, wie in Abbildung 2.2 zu sehen ist.
 Ein Schritt ist, dass getestet wird, ob das Format der Schnittstellendefinition eingehalten wird.
 Ein Entwickler schreibt die Schnittstelle und die Überprüfung erfolgt von einer zweiten Person. Der Überprüfer hat einen
-anderen Blickwinkel und kann Denkfehler besser erkennen und sofort lösen \cite[vgl.][S. 226]{integration}.
+anderen Blickwinkel und kann Denkfehler besser erkennen und sofort lösen \parencite[S. 226]{integration}.
 Als Beispiel einer Schnittstelle wird im Folgenden \ac{xml} genommen.
 Es gibt automatisierte Tests wie einen XML-Analysator. Dieser überprüft XML-Daten gegen die Struktur im vorgegebenen
-Schema \cite[vgl.][S. 237]{integration}.
+Schema \parencite[S. 237]{integration}.
 
 Damit werden nur die XML-Daten an sich überprüft. Ein zweiter wichtiger Punkt ist die Überprüfung des Zugriffs auf die Daten, die in einer XML hinterlegt sind.
 Dafür muss der Code geprüft werden, in der die Schnittstelle verwendet wird.
-Die Schnittstelle wird auf Empfänger- und Senderseite überprüft. Dabei können Parameter wie der Typ, die Reihenfolge oder die Nutzungsart eine Rolle spielen \cite[vgl.][S. 228]{integration}.\par
+Die Schnittstelle wird auf Empfänger- und Senderseite überprüft. Dabei können Parameter wie der Typ, die Reihenfolge oder die Nutzungsart eine Rolle spielen \parencite[S. 228]{integration}.\par
 \begin{figure}[!h]
 \centering
 \includegraphics[scale=.9,]{Bilder/Quicktest/Schnittstellen.drawio.png}
-\caption{Schnittstellentest \cite[vgl.][S. 226]{integration}}
+\caption{Schnittstellentest \parencite[S. 226]{integration}}
 \end{figure}
 
 

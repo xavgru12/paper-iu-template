@@ -14,7 +14,7 @@
 % simuliert wird. Bei Hardware-in-the-Loop hingegen ist die Hardware vorhanden und die Software wird, während
 % es auf der Hardware ausgeführt wird, getestet.
 % SIL ist in der Entwicklung bedeutend, da es keine Hardware zum Testen benötigt und schon in den 
-% frühen Phasen der Entwicklung getestet werden kann\cite[S.1 f.]{silest}. Je länger ein Fehler unentdeckt bleibt und nicht
+% frühen Phasen der Entwicklung getestet werden kann\parencite[S.1 f.]{silest}. Je länger ein Fehler unentdeckt bleibt und nicht
 % behoben wird, umso teurer wird dieser Fehler.
 
 % Diese Arbeit handelt davon TPT als Programm einzusetzen, um einen Schnittstellentest zu überführen und ein
@@ -26,19 +26,19 @@ wird nach dem V-Modell entwickelt (siehe Abbildung 1.1).\par
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1.2,]{Bilder/VModell.png}
-\caption{V-Modell \cite[S. 68]{agiletesting}}\label{fig:VModell}
+\caption{V-Modell \parencite[S. 68]{agiletesting}}\label{fig:VModell}
 \end{figure}
 Ein Merkmal des V-Modells ist, dass jede Stufe der Entwicklung einen dazugehörigen Test besitzt.
-Die folgenden Testebenen beschreiben die einzelnen Teststufen \cite[vgl.][S. 41 f., S. 51]{integration}:
+Die folgenden Testebenen beschreiben die einzelnen Teststufen \parencite[S. 41 f., S. 51]{integration}:
 \begin{description}
-\item[Komponententest] Es wird eine Komponente isoliert von der Software - funktional und strukturell - getestet. % \cite[vgl.][S. 41]{integration}
-\item[Integrationstest] Es ist ein Test, der das Zusammenspiel bereits getesteter Komponenten überprüft. %  \cite[vgl.][S. 51]{integration}. 
+\item[Komponententest] Es wird eine Komponente isoliert von der Software - funktional und strukturell - getestet. % \parencite[S. 41]{integration}
+\item[Integrationstest] Es ist ein Test, der das Zusammenspiel bereits getesteter Komponenten überprüft. %  \parencite[S. 51]{integration}. 
 \item[Systemtest] Es wird die Funktionsfähigkeit des ganzen Systems getestet. Dazu zählen auch Performanz-, Stress und Robustheitstests.
 \item[Abnahmetest] Mit diesem Test wird überprüft, ob die Erwartungen der Anwender erfüllt werden. Der Test soll
 unter realen Einsatzbedingungen stattfinden.
 \end{description}
-%Im Komponententest wird eine Komponente isoliert vom Rest der Software getestet. %\cite[S.41]{integration}.
-%Die Komponente wird funktional und strukturell getestet \cite[vgl.][S. 41]{integration}.
+%Im Komponententest wird eine Komponente isoliert vom Rest der Software getestet. %\parencite[S.41]{integration}.
+%Die Komponente wird funktional und strukturell getestet \parencite[S. 41]{integration}.
 % Das ist der erste Test nach der Implementation.
 % Der Komponententest zeichnet sich aus, dass einzelne elementare Programmbausteine isoliert getestet werden.
 % Im Modultest bzw. Komponententest (unit test) werden einzelne elementare Programmbausteine
@@ -46,15 +46,15 @@ unter realen Einsatzbedingungen stattfinden.
 % können dabei auch zusammengesetzt sein. Der Tester hat in der Regel Zugang zum Quellcode,
 % sodass in dieser Teststufe sehr entwicklungsnah gearbeitet wird und es sind somit
 % sowohl Black-Box- als auch White-Box-Verfahren anwendbar.
-%Der Integrationstest ist ein Test, der das Zusammenspiel bereits getesteter Komponenten überprüft \cite[vgl.][S. 51]{integration}. 
+%Der Integrationstest ist ein Test, der das Zusammenspiel bereits getesteter Komponenten überprüft \parencite[S. 51]{integration}. 
 %Fehler in den Schnittstellen sollen hier aufgedeckt werden.
 % Wichtig:
 % Es gibt verschiedene Integrationsstufen, die der Reihe nach getestet werden.(hier Integrationsstufen aufzählen).
 %Hier Erklärung Integrationstest und Erklärung Komponententest einfügen.
 %Jede Stufe der Entwicklung besitzt einen dazugehörigen Test.
 Der Schnittstellentest, in dem die Signalverbindungen zwischen Komponenten überprüft werden, ist ein Teil des 
-Integrationstests \cite[vgl.][S. 51, S. 217]{integration}.
-Der Äquivalenzklassentest ist als funktionaler Test im Komponententest wiederzufinden \cite[vgl.][S. 41 f.]{integration}\cite[vgl.][S. 114 ff.]{equiinformatic}.
+Integrationstests \parencite[S. 51, S. 217]{integration}.
+Der Äquivalenzklassentest ist als funktionaler Test im Komponententest wiederzufinden \parencite[S. 41 f.]{integration}\parencite[S. 114 ff.]{equiinformatic}.
 
 Wie der Äquivalenzklassentest einzuordnen ist, wird in Abbildung 1.2 deutlich.
 Dieses Diagramm ist nicht vollständig, sondern soll nur als Einordnung dienen.
@@ -66,13 +66,13 @@ der inneren Struktur sind nicht von Bedeutung. Deshalb wird es auch als Blackbox
 In der strukturellen Analyse hingegen wird der innere Ablauf im Testobjekt analysiert. Der Blickwinkel wandert
 in das System. Es wird auch Whitebox-Testverfahren genannt.
 Ein funktionaler Test ist der Äquivalenzklassentest. 
-Ein weiterer ist die Grenzwertanalyse \cite[vgl.][S. 114 ff.]{equiinformatic}\cite[vgl.][]{dynamischeanalyse1}\cite[vgl.][]{dynamischeanalyse2}.
+Ein weiterer ist die Grenzwertanalyse \parencite[S. 114 ff.]{equiinformatic}\parencite[]{dynamischeanalyse1}\parencite[]{dynamischeanalyse2}.
 Die Grenzwertanalyse eignet sich hervorragend, um sie mit anderen Tests wie dem Äquivalenzklassentest 
-zu kombinieren \cite[vgl.][S. 36]{integration}.\par
+zu kombinieren \parencite[S. 36]{integration}.\par
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.9,]{Bilder/Einordnung.drawio.png}
-\caption{Einordnung der Äquivalenzklassen \cite[vgl.][]{dynamischeanalyse1}\cite[vgl.][]{dynamischeanalyse2}\cite[vgl.][S. 114 ff.]{equiinformatic}}
+\caption{Einordnung der Äquivalenzklassen \parencite[]{dynamischeanalyse1}\parencite[]{dynamischeanalyse2}\parencite[S. 114 ff.]{equiinformatic}}
 \end{figure}
 
 
